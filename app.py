@@ -3,8 +3,8 @@ import json
 import openai
 import spotipy
 from dotenv import dotenv_values
-from flask import Flask, session, request, jsonify
-from spotipy import FlaskSessionCacheHandler
+from flask import Flask, session, request, jsonify, render_template
+from spotipy import FlaskSessionCacheHandler, SpotifyOauthError
 
 config = dotenv_values(".env")
 
@@ -68,13 +68,18 @@ def get_track_song(track) -> str:
 
 @app.route('/')
 def index():
-    return "Welcome!"
+    return render_template("index.html")
 
 
 @app.route("/generate", methods=["POST"])
 def generate_playlist():
     data = json.loads(request.data)
     query = data['query']
+
+    try:
+        spotify_user = spotify_client.current_user()
+    except SpotifyOauthError:
+        return jsonify({"error": "Failed to authenticate to Spotify!"}), 403
 
     prompt = [{"role": "user", "content": query}]
 
@@ -87,7 +92,6 @@ def generate_playlist():
     gpt_playlist = json.loads(response["choices"][0]["message"]["content"])
     spotify_tracks = get_tracks(gpt_playlist)
     if len(spotify_tracks) > 0:
-        spotify_user = spotify_client.current_user()
         spotify_playlist = spotify_client.user_playlist_create(spotify_user["id"], public=False, name=query)
         spotify_client.playlist_add_items(spotify_playlist["id"], [track['id'] for track in spotify_tracks])
 
