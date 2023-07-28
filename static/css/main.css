@@ -24,17 +24,17 @@ body {
 }
 
 .text-name {
-    font-family: 'Bungee', cursive;
+    font-family: 'Arial', sans-serif;
     font-size: 20px;
     line-height: 100%;
 
 }
 
 .text-title {
-    font-family: 'Aldrich', sans-serif;
+    font-family: 'Bad Script', cursive;
     font-size: 100px;
     font-weight: normal;
-    line-height: 90%;
+    line-height: 120%;
     margin: 40px 0;
 }
 
