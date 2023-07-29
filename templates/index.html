@@ -17,14 +17,16 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="color-white text-title">
-        Let AI creates your Spotify playlist
-      </h1>
-      <form class="form-query">
-        <input />
-        <button type="submit">Generate</button>
-      </form>
-      <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+      <main>
+        <h1 class="color-white text-title">
+          Let AI creates your Spotify playlist
+        </h1>
+        <form class="form-query">
+          <input />
+          <button type="submit">Generate</button>
+        </form>
+      </main>
     </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>
