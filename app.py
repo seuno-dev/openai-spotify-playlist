@@ -17,15 +17,15 @@ messages = [
     {"role": "system",
      "content": "You will create a list of songs and its artist based on user's input. "
                 "The output format should in JSON array of object which have 2 fields, "
-                "song and artist. Should return at least 10 songs. Only return the main/first artist."},
+                "song and artist. Should return at least 10 songs. Separate the artists by comma instead of saying 'featuring'."},
     {"role": "user", "content": "romantic songs"},
     {"role": "assistant",
      "content": '[{"song": "Perfect", "artist": "Ed Sheeran"}, {"song": "All of Me", "artist": "John Legend"}, '
                 '{"song": "Someone Like You", "artist": "Adele"}, {"song": "Fix You", "artist": "Coldplay"}, '
                 '{"song": "I Will Always Love You", "artist": "Whitney Houston"}, '
-                '{"song": "Breathe", "artist": "Lee Hi"}, {"song": "Blooming", "artist": "Zion.T"}, '
-                '{"song": "Stay With Me", "artist": "Chanyeol & Punch"}, {"song": "Beautiful", "artist": "Crush"}, '
-                '{"song": "The Truth Untold", "artist": "BTS"}]'}
+                '{"song": "Breathe", "artist": "Lee Hi"}, {"song": "Something Just Like This", "artist": "The Chainsmokers, Coldplay"}, '
+                '{"song": "Stay With Me", "artist": "Chanyeol"}, {"song": "Beautiful", "artist": "Crush"}, '
+                '{"song": "Uptown Funk", "artist": "Mark Ronson, Bruno Mars"}]'}
 ]
 
 spotify_client = spotipy.Spotify(
