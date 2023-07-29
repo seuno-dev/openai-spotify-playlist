@@ -96,7 +96,7 @@ def generate_playlist():
         spotify_client.playlist_add_items(spotify_playlist["id"], [track['id'] for track in spotify_tracks])
 
         tracks = [{"artist": get_track_artists(track), "song": get_track_song(track)} for track in spotify_tracks]
-        return jsonify({"playlist_url": spotify_playlist['href'], "tracks": tracks})
+        return jsonify({"playlist_url": spotify_playlist['external_urls']['spotify'], "tracks": tracks})
 
 
 if __name__ == '__main__':

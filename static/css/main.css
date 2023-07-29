@@ -23,6 +23,16 @@ main {
   align-items: flex-start;
 }
 
+main .fetch-info {
+  margin-top: 10px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+main .fetch-info a {
+  color: white;
+  font-weight: bolder;
+}
+
 .color-white {
   color: white;
 }
